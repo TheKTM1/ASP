@@ -1,0 +1,41 @@
+﻿@model IEnumerable<RowerPower.Models.VehicleItemViewModel>
+
+@{
+    ViewData["Title"] = "VehicleItemView";
+}
+
+<h1>Nasze rowery</h1><hr />
+
+<table width="100%">
+    @foreach (var item in Model) {
+        <tr>
+            <td style="text-align:center">
+                @Html.DisplayFor(modelItem => item.Name) <hr />
+            </td>
+            <td style="text-align:center">
+                @Html.DisplayFor(modelItem => item.Type.VehicleTypeName) <hr />
+            </td>
+            <td style="text-align:center">
+                @Html.DisplayFor(modelItem => item.Producer) <hr/>
+            </td>
+            <td style="text-align:center">
+                @Html.DisplayFor(modelItem => item.Price) PLN <hr/>
+            </td>
+            <td>
+                <a asp-controller="Vehicles" asp-action="VehicleDetailView" asp-route-id="@item.Id">Szczegóły</a> |
+                <a asp-controller="Vehicles" asp-action="Edit" asp-route-id="@item.Id">Edycja</a> |
+                <a asp-controller="Vehicles" asp-action="Delete" asp-route-id="@item.Id">Skasuj</a>
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+                <hr/>
+            </td>
+        </tr>
+    }
+</table>
+
+<p>
+    <a asp-action="Create">Create New</a><br />
+    <a asp-area="" asp-controller="Home" asp-action="Index">Home</a><br />
+    <a asp-controller="RentalSpot" asp-action="Index">Punkty wypożyczeń</a>
+</p>

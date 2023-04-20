@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1>Rower Power</h1>
+</div>
+
+<div class="text-center">
+    <h2>Witaj!</h2>
+    <p>
+        Masz już dość pieszej podróży? Nie stać cię na samochód?<br />
+        A może chcesz się pochwalić zdrowym stylem życia?
+    </p>
+    <p>
+        Nasze rowery są sprowadzane od najwybitniejszych<br />
+        producentów rowerów i czekają właśnie na Ciebie!
+    </p>
+</div>
+
+<div class="text-center">
+    <h2>Galeria</h2>
+    <div style="display:grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 250px">
+        <div style="grid-column: 1">
+            <img src="imgs/bik1.png" style="max-height: 100%" />
+        </div>
+        <div style="grid-column: 2">
+            <img src="imgs/bik2.png" style="max-height: 100%" />
+        </div>
+        <div style="grid-column: 3">
+            <img src="imgs/bik3.png" style="max-height: 100%" />
+        </div>
+    </div>
+</div>
+
+<div class="text-center" style="margin:20px">
+    <a asp-controller="Vehicles" asp-action="VehicleItemView">Do listy rowerów</a>
+</div>

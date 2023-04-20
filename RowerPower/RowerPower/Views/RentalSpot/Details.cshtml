@@ -1,0 +1,30 @@
+﻿@model RowerPower.Models.VehicleRentalSpotViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>VehicleRentalSpotModel</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LocaleName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LocaleName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LocaleAddress)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LocaleAddress)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.LocaleId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
