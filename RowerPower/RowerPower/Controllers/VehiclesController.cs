@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using NuGet.Protocol.Plugins;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using RowerPower.Models;
 using RowerPower.Repo;
+using AutoMapper;
 
 namespace RowerPower.Controllers
 {
@@ -9,24 +10,34 @@ namespace RowerPower.Controllers
     {
         private readonly IRepository<VehicleModel> vehicleRepo;
         private readonly IRepository<VehicleTypeModel> vehicleTypeRepo;
+        private readonly IMapper mapper;
 
-        public VehiclesController(IRepository<VehicleModel> db, IRepository<VehicleTypeModel> vehicleTypeRepository) {
-            vehicleRepo = db;
+        public VehiclesController(IRepository<VehicleModel> vehicleRepository, IRepository<VehicleTypeModel> vehicleTypeRepository, IMapper mapper) {
+            vehicleRepo = vehicleRepository;
             vehicleTypeRepo = vehicleTypeRepository;
+            this.mapper = mapper;
         }
 
         [HttpGet]
         public IActionResult Create() {
+            var vList = vehicleTypeRepo.GetAll();
+
+            ViewBag.VehicleTypes = new SelectList(vList, "VehicleTypeId", "VehicleTypeName");
             return View();
         }
 
         [HttpPost]
         public IActionResult Create(VehicleDetailViewModel vehicle) {
 
-            var newVehicle = new VehicleDetailViewModel() {
-                Id = vehicle.Id,
+            VehicleTypeModel? vType = vehicleTypeRepo.Get(vehicle.Type.VehicleTypeId);
+            if (vType is null) {
+                throw new Exception("null");
+            }
+
+            VehicleModel v = new() {
+                VehicleId = vehicle.Id,
                 Name = vehicle.Name,
-                Type = vehicle.Type,
+                Type = vType,
                 Producer = vehicle.Producer,
                 Price = vehicle.Price,
                 Height = vehicle.Height,
@@ -35,9 +46,7 @@ namespace RowerPower.Controllers
                 Description = vehicle.Description
             };
 
-            VehicleModel convertedVehicle = newVehicle.ToVehicleModel(newVehicle);
-
-            vehicleRepo.Add(convertedVehicle);
+            vehicleRepo.Add(v);
 
             return RedirectToAction("VehicleItemView");
         }
@@ -50,18 +59,25 @@ namespace RowerPower.Controllers
                 return RedirectToAction("VehicleItemView");
             }
 
-            VehicleDetailViewModel convertedVehicle = new VehicleDetailViewModel();
-            convertedVehicle = convertedVehicle.ToVehicleDetailViewModel(vehicle);
+            VehicleDetailViewModel convertedVehicle = mapper.Map<VehicleDetailViewModel>(vehicle);
+
+            var vList = vehicleTypeRepo.GetAll();
+            ViewBag.VehicleTypes = new SelectList(vList, "VehicleTypeId", "VehicleTypeName");
 
             return View(convertedVehicle);
         }
 
         [HttpPost]
         public IActionResult Edit(VehicleDetailViewModel vehicle) {
-            var editedVehicle = new VehicleDetailViewModel() {
-                Id = vehicle.Id,
+            VehicleTypeModel? vType = vehicleTypeRepo.Get(vehicle.Type.VehicleTypeId);
+            if (vType is null) { 
+                throw new Exception("null");
+            }
+
+            VehicleModel editedVehicle = new() {
+                VehicleId = vehicle.Id,
                 Name = vehicle.Name,
-                Type = vehicle.Type,
+                Type = vType,
                 Producer = vehicle.Producer,
                 Price = vehicle.Price,
                 Height = vehicle.Height,
@@ -70,10 +86,7 @@ namespace RowerPower.Controllers
                 Description = vehicle.Description
             };
 
-            VehicleModel convertedVehicle = new VehicleModel();
-            convertedVehicle = editedVehicle.ToVehicleModel(editedVehicle);
-
-            vehicleRepo.Update(convertedVehicle);
+            vehicleRepo.Update(editedVehicle);
 
             return RedirectToAction("VehicleItemView");
         }
@@ -85,8 +98,7 @@ namespace RowerPower.Controllers
                 return RedirectToAction("VehicleItemView");
             }
 
-            VehicleDetailViewModel convertedVehicle = new VehicleDetailViewModel();
-            convertedVehicle = convertedVehicle.ToVehicleDetailViewModel(vehicle);
+            VehicleDetailViewModel convertedVehicle = mapper.Map<VehicleDetailViewModel>(vehicle);
 
             return View(convertedVehicle);
         }
@@ -100,20 +112,11 @@ namespace RowerPower.Controllers
         [HttpGet]
         public IActionResult VehicleItemView() {
 
-            List<VehicleItemViewModel> vehicles = new List<VehicleItemViewModel>();
+            List<VehicleItemViewModel> vehicles = new();
 
             foreach (var v in vehicleRepo.GetAll()) {
 
-                var newVehicle = new VehicleModel() {
-                    VehicleId = v.VehicleId,
-                    Name = v.Name,
-                    Type = v.Type,
-                    Producer = v.Producer,
-                    Price = v.Price
-                };
-
-                VehicleItemViewModel convertedVehicle = new VehicleItemViewModel();
-                convertedVehicle = convertedVehicle.ToVehicleItemViewModel(newVehicle);
+                VehicleItemViewModel convertedVehicle = mapper.Map<VehicleItemViewModel>(v);
 
                 vehicles.Add(convertedVehicle);
             }
@@ -129,8 +132,7 @@ namespace RowerPower.Controllers
                 return RedirectToAction("VehicleItemView");
             }
 
-            VehicleDetailViewModel convertedVehicle = new VehicleDetailViewModel();
-            convertedVehicle = convertedVehicle.ToVehicleDetailViewModel(vehicle);
+            VehicleDetailViewModel convertedVehicle = mapper.Map<VehicleDetailViewModel>(vehicle);
 
             return View(convertedVehicle);
         }

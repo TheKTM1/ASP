@@ -5,6 +5,7 @@ namespace RowerPower.Models {
     public class VehicleDetailViewModel {
         public int Id { get; set; }
         [Display(Name = "Model")]
+        [Required(ErrorMessage = "Pole nie może być puste.")]
         public string Name { get; set; }
         [Display(Name = "Typ")]
         public VehicleTypeModel? Type { get; set; }
@@ -20,33 +21,5 @@ namespace RowerPower.Models {
         public string? Color { get; set; }
         [Display(Name = "Opis")]
         public string? Description { get; set; }
-        public VehicleModel ToVehicleModel(VehicleDetailViewModel v) {
-            var vehicle = new VehicleModel() {
-                VehicleId = v.Id,
-                Name = v.Name,
-                Type = v.Type,
-                Producer = v.Producer,
-                Price = v.Price,
-                Height = v.Height,
-                Weight = v.Weight,
-                Color = v.Color,
-                Description = v.Description
-            };
-            return vehicle;
-        }
-        public VehicleDetailViewModel ToVehicleDetailViewModel(VehicleModel v) {
-            var vehicle = new VehicleDetailViewModel() {
-                Id = v.VehicleId,
-                Name = v.Name,
-                Type = v.Type,
-                Producer = v.Producer,
-                Price = v.Price,
-                Height = v.Height,
-                Weight = v.Weight,
-                Color = v.Color,
-                Description = v.Description
-            };
-            return vehicle;
-        }
     }
 }

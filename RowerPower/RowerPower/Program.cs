@@ -6,14 +6,16 @@ using RowerPower.Validators;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddDbContext<VehicleDatabase>();
 
 builder.Services.AddScoped<IRepository<VehicleModel>, VehicleRepository>();
 builder.Services.AddScoped<IRepository<VehicleTypeModel>, VehicleTypeRepository>();
 builder.Services.AddScoped<IRepository<VehicleRentalSpotModel>, RentalSpotRepository>();
+//builder.Services.AddScoped<IRepository<VehicleReservationModel>, VehicleReservationRepository>();
+builder.Services.AddScoped<IRepository<UserModel>, UserRepository>();
 
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddFluentValidationClientsideAdapters();
