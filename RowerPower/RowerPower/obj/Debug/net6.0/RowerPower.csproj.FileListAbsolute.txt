@@ -513,3 +513,82 @@ D:\ATH Stuff\ASP\RowerPower\RowerPower\bin\Debug\net6.0\AutoMapper.Extensions.Mi
 D:\ATH Stuff\ASP\RowerPower\RowerPower\bin\Debug\net6.0\FluentValidation.dll
 D:\ATH Stuff\ASP\RowerPower\RowerPower\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
 D:\ATH Stuff\ASP\RowerPower\RowerPower\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
+D:\ATH Stuff\ASP\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\ATH Stuff\ASP\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\ATH Stuff\ASP\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\ATH Stuff\ASP\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.UI.dll
+D:\ATH Stuff\ASP\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
+D:\ATH Stuff\ASP\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\ATH Stuff\ASP\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Embedded.dll
+D:\ATH Stuff\ASP\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+D:\ATH Stuff\ASP\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+D:\ATH Stuff\ASP\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+D:\ATH Stuff\ASP\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\ATH Stuff\ASP\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+D:\ATH Stuff\ASP\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+D:\ATH Stuff\ASP\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\ATH Stuff\ASP\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+D:\ATH Stuff\ASP\RowerPower\RowerPower\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+D:\ATH Stuff\ASP\RowerPower\RowerPower\bin\Debug\net6.0\System.Runtime.Caching.dll
+D:\ATH Stuff\ASP\RowerPower\RowerPower\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\ATH Stuff\ASP\RowerPower\RowerPower\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\ATH Stuff\ASP\RowerPower\RowerPower\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\ATH Stuff\ASP\RowerPower\RowerPower\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\ATH Stuff\ASP\RowerPower\RowerPower\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\ATH Stuff\ASP\RowerPower\RowerPower\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\ATH Stuff\ASP\RowerPower\RowerPower\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\FluentValidation.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.UI.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Embedded.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\Mono.TextTemplating.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\System.CodeDom.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\System.Runtime.Caching.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\System.Text.Encodings.Web.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\System.Text.Json.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\obj\Debug\net6.0\RowerPower.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\obj\Debug\net6.0\staticwebassets\msbuild.RowerPower.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\obj\Debug\net6.0\staticwebassets\msbuild.build.RowerPower.props
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.RowerPower.props
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.RowerPower.props
+C:\Users\Student\OneDrive\Pulpit\RowerPower\RowerPower\obj\Debug\net6.0\staticwebassets.pack.json

@@ -2,7 +2,7 @@
 using RowerPower.Models;
 
 namespace RowerPower.Repo {
-    public class VehicleRepository : IRepository<VehicleModel> {
+    public class VehicleRepository : IRepository<VehicleModel, int> {
         private readonly VehicleDatabase _db;
 
         public VehicleRepository(VehicleDatabase db) {
