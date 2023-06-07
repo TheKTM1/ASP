@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ATH Stuff\\ASP\\RowerPower\\RowerPower\\RowerPower.csproj": {}
+    "C:\\Users\\Konrad\\OneDrive\\Dokumenty\\GitHub\\ASP\\RowerPower\\RowerPower\\RowerPower.csproj": {}
   },
   "projects": {
-    "D:\\ATH Stuff\\ASP\\RowerPower\\RowerPower\\RowerPower.csproj": {
+    "C:\\Users\\Konrad\\OneDrive\\Dokumenty\\GitHub\\ASP\\RowerPower\\RowerPower\\RowerPower.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ATH Stuff\\ASP\\RowerPower\\RowerPower\\RowerPower.csproj",
+        "projectUniqueName": "C:\\Users\\Konrad\\OneDrive\\Dokumenty\\GitHub\\ASP\\RowerPower\\RowerPower\\RowerPower.csproj",
         "projectName": "RowerPower",
-        "projectPath": "D:\\ATH Stuff\\ASP\\RowerPower\\RowerPower\\RowerPower.csproj",
+        "projectPath": "C:\\Users\\Konrad\\OneDrive\\Dokumenty\\GitHub\\ASP\\RowerPower\\RowerPower\\RowerPower.csproj",
         "packagesPath": "C:\\Users\\Konrad\\.nuget\\packages\\",
-        "outputPath": "D:\\ATH Stuff\\ASP\\RowerPower\\RowerPower\\obj\\",
+        "outputPath": "C:\\Users\\Konrad\\OneDrive\\Dokumenty\\GitHub\\ASP\\RowerPower\\RowerPower\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

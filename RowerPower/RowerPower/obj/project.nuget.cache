@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9SiR6cYp/xn/pVfQl+2CowBIKNVvaUSksIEJTBCL9hohUPD38tOvVGOmOR7dNT6OLMvQoVHqv7USXbIXVDQRcQ==",
+  "dgSpecHash": "YmD4JpqGLxYk5/6Sv82Y4c4iuOkZc8085cmM5iivxe7Lw927iedDueE5YxSn2ENdAJcpZPHC6wX+ZeHz/UWXNA==",
   "success": true,
-  "projectFilePath": "D:\\ATH Stuff\\ASP\\RowerPower\\RowerPower\\RowerPower.csproj",
+  "projectFilePath": "C:\\Users\\Konrad\\OneDrive\\Dokumenty\\GitHub\\ASP\\RowerPower\\RowerPower\\RowerPower.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Konrad\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Konrad\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
