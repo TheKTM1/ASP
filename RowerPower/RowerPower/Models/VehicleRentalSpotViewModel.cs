@@ -4,24 +4,10 @@ namespace RowerPower.Models {
     public class VehicleRentalSpotViewModel {
         public int LocaleId { get; set; }
         [Display(Name = "Nazwa lokalu")]
-        public string? LocaleName { get; set; }
+        [Required(ErrorMessage = "Pole nie może być puste.")]
+        public string LocaleName { get; set; }
         [Display(Name = "Adres lokalu")]
+        [StringLength(30, ErrorMessage = "Pole adresu może zawierać od 8 do 30 znaków.", MinimumLength = 8)]
         public string? LocaleAddress { get; set; }
-        public VehicleRentalSpotModel ToRentalSpotModel(VehicleRentalSpotViewModel rs) {
-            var spot = new VehicleRentalSpotModel() {
-                LocaleId = rs.LocaleId,
-                LocaleName = rs.LocaleName,
-                LocaleAddress = rs.LocaleAddress,
-            };
-            return spot;
-        }
-        public VehicleRentalSpotViewModel ToRentalSpotViewModel(VehicleRentalSpotModel rs) {
-            var spot = new VehicleRentalSpotViewModel() {
-                LocaleId = rs.LocaleId,
-                LocaleName = rs.LocaleName,
-                LocaleAddress = rs.LocaleAddress,
-            };
-            return spot;
-        }
     }
 }

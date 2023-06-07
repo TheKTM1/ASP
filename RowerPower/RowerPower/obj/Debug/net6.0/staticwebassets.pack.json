@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\RowerPower.bundle.scp.css"
     },
     {
+      "Id": "D:\\ATH Stuff\\ASP\\RowerPower\\RowerPower\\wwwroot\\css\\sb-admin-2.min.css",
+      "PackagePath": "staticwebassets\\css\\sb-admin-2.min.css"
+    },
+    {
       "Id": "D:\\ATH Stuff\\ASP\\RowerPower\\RowerPower\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

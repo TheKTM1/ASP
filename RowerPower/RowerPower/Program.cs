@@ -3,17 +3,25 @@ using FluentValidation.AspNetCore;
 using RowerPower.Models;
 using RowerPower.Repo;
 using RowerPower.Validators;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddDbContext<VehicleDatabase>();
 
-builder.Services.AddScoped<IRepository<VehicleModel>, VehicleRepository>();
-builder.Services.AddScoped<IRepository<VehicleTypeModel>, VehicleTypeRepository>();
-builder.Services.AddScoped<IRepository<VehicleRentalSpotModel>, RentalSpotRepository>();
+builder.Services.AddDefaultIdentity<UserModel>(options => options.SignIn.RequireConfirmedAccount = false)
+    .AddDefaultTokenProviders()
+    .AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<VehicleDatabase>();
+
+builder.Services.AddScoped<IRepository<VehicleModel, int>, VehicleRepository>();
+builder.Services.AddScoped<IRepository<VehicleTypeModel, int>, VehicleTypeRepository>();
+builder.Services.AddScoped<IRepository<VehicleRentalSpotModel, int>, RentalSpotRepository>();
+builder.Services.AddScoped<IRepository<VehicleReservationModel, int>, ReservationRepository>();
+builder.Services.AddScoped<IRepository<UserModel, string>, UserRepository>();
 
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddFluentValidationClientsideAdapters();
@@ -26,11 +34,53 @@ var app = builder.Build();
 
 using (var scope = app.Services.CreateScope()) {
     var dbContext = scope.ServiceProvider.GetService<VehicleDatabase>();
-    if (dbContext is null) {
+    var userManager = scope.ServiceProvider.GetService<UserManager<UserModel>>();
+    var roleManager = scope.ServiceProvider.GetService<RoleManager<IdentityRole>>();
+
+    if (dbContext is null || userManager is null || roleManager is null) {
         return;
     }
 
-    List<VehicleTypeModel> vehicleTypeList = new List<VehicleTypeModel>() {
+    List<string> roles = new() { "Administrator", "Operator", "U≈ºytkownik" };
+    foreach (var role in roles) {
+        var result = roleManager.CreateAsync(new IdentityRole(role)).Result;
+        if (!result.Succeeded) throw new Exception(result.Errors.First().Description);
+    }
+
+    var admin = new UserModel {
+        UserName = "admin@admin.admin",
+        Email = "admin@admin.admin",
+        Id = Guid.NewGuid().ToString(),
+        FirstName = "Admin",
+        LastName = "Admin",
+        EmailConfirmed = true
+    };
+    userManager.CreateAsync(admin, "Ad!min1").Wait();
+    userManager.AddToRoleAsync(admin, "Administrator").Wait();
+
+    var operAtor = new UserModel {
+        UserName = "oper@ator.com",
+        Email = "oper@ator.com",
+        Id = Guid.NewGuid().ToString(),
+        FirstName = "Oper",
+        LastName = "Ator",
+        EmailConfirmed = true
+    };
+    userManager.CreateAsync(operAtor, "T3stowe!").Wait();
+    userManager.AddToRoleAsync(operAtor, "Operator").Wait();
+
+    var user = new UserModel {
+        UserName = "user@user.user",
+        Email = "user@user.user",
+        Id = Guid.NewGuid().ToString(),
+        FirstName = "Jan",
+        LastName = "Kowalski",
+        EmailConfirmed = true
+    };
+    userManager.CreateAsync(user, "User123456789!").Wait();
+    userManager.AddToRoleAsync(user, "U≈ºytkownik").Wait();
+
+    List<VehicleTypeModel> vehicleTypeList = new() {
         new(){
             VehicleTypeId = 1,
             VehicleTypeName = "Wyczynowy"
@@ -41,7 +91,7 @@ using (var scope = app.Services.CreateScope()) {
         },
         new(){
             VehicleTypeId = 3,
-            VehicleTypeName = "GÛrski"
+            VehicleTypeName = "G√≥rski"
         }
     };
 
@@ -65,7 +115,7 @@ using (var scope = app.Services.CreateScope()) {
             Height = 0.8F,
             Weight = 10F,
             Color = "Satin Royal Blue",
-            Description = "Bardzo ≥adny kolor."
+            Description = "Bardzo ≈Çadny kolor."
         },
         new(){
             Id = 2,
@@ -97,7 +147,7 @@ using (var scope = app.Services.CreateScope()) {
 
         v.Type = dbContext.VehicleTypes.Find(v.Type.VehicleTypeId);
 
-        VehicleModel vehicle = new VehicleModel() {
+        VehicleModel vehicle = new() {
             VehicleId = v.Id,
             Name = v.Name,
             Type = v.Type,
@@ -116,18 +166,18 @@ using (var scope = app.Services.CreateScope()) {
     List<VehicleRentalSpotModel> rentalSpotList = new List<VehicleRentalSpotModel>() {
         new(){
             LocaleId = 1,
-            LocaleName = "Wydzia≥ w Sosnowcu",
+            LocaleName = "Wydzia≈Ç w Sosnowcu",
             LocaleAddress = "Krakowska 17"
         },
         new(){
             LocaleId = 2,
-            LocaleName = "Wydzia≥ w KÍtach",
-            LocaleAddress = "Koúciuszki 24"
+            LocaleName = "Wydzia≈Ç w Kentach",
+            LocaleAddress = "Ko≈õciuszki 24"
         },
         new(){
             LocaleId = 3,
-            LocaleName = "Wydzia≥ w Bielsku-Bia≥ej",
-            LocaleAddress = "Czo≥gistÛw 69"
+            LocaleName = "Wydzia≈Ç w Bielsku-BiaÔøΩej",
+            LocaleAddress = "Czo≈Çgist√≥w 69"
         }
     };
 
@@ -145,20 +195,29 @@ using (var scope = app.Services.CreateScope()) {
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment()) {
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+app.UseExceptionHandler("/Home/Error");
+// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+app.UseHsts();
 }
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseAuthentication();;
 
 app.UseAuthorization();
 
+
+app.MapRazorPages();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapAreaControllerRoute(
+    name: "Admin",
+    areaName: "Admin",
+    pattern: "Admin/{action=Index}/{id?}",
+    defaults: new { controller = "Admin" });
 
 app.Run();

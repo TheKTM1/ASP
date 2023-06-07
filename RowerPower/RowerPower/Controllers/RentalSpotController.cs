@@ -1,13 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RowerPower.Models;
 using RowerPower.Repo;
+using AutoMapper;
 
 namespace RowerPower.Controllers {
     public class RentalSpotController : Controller {
-        private readonly IRepository<VehicleRentalSpotModel> rentalSpotRepo;
+        private readonly IRepository<VehicleRentalSpotModel, int> rentalSpotRepo;
+        private readonly IMapper mapper;
 
-        public RentalSpotController(IRepository<VehicleRentalSpotModel> db) {
+        public RentalSpotController(IRepository<VehicleRentalSpotModel, int> db, IMapper mapper) {
             rentalSpotRepo = db;
+            this.mapper = mapper;
         }
 
         [HttpGet]
@@ -17,14 +20,7 @@ namespace RowerPower.Controllers {
 
         [HttpPost]
         public IActionResult Create(VehicleRentalSpotViewModel rs) {
-            VehicleRentalSpotViewModel spot = new VehicleRentalSpotViewModel() {
-                LocaleId = rs.LocaleId,
-                LocaleName = rs.LocaleName,
-                LocaleAddress = rs.LocaleAddress
-            };
-
-            VehicleRentalSpotModel convertedSpot = new VehicleRentalSpotModel();
-            convertedSpot = convertedSpot.ToRentalSpotModel(spot);
+            VehicleRentalSpotModel convertedSpot = mapper.Map<VehicleRentalSpotModel>(rs);
 
             rentalSpotRepo.Add(convertedSpot);
 
@@ -38,21 +34,14 @@ namespace RowerPower.Controllers {
                 return View("Index");
             }
 
-            VehicleRentalSpotViewModel convertedSpot = new VehicleRentalSpotViewModel();
-            convertedSpot = spot.ToRentalSpotViewModel(spot);
+            VehicleRentalSpotViewModel convertedSpot = mapper.Map<VehicleRentalSpotViewModel>(spot);
 
             return View(convertedSpot);
         }
 
         [HttpPost]
         public IActionResult Edit(VehicleRentalSpotViewModel rs) {
-            VehicleRentalSpotViewModel toEdit = new VehicleRentalSpotViewModel() {
-                LocaleId = rs.LocaleId,
-                LocaleName = rs.LocaleName,
-                LocaleAddress = rs.LocaleAddress
-            };
-            var convertedSpot = new VehicleRentalSpotModel();
-            convertedSpot = convertedSpot.ToRentalSpotModel(toEdit);
+            VehicleRentalSpotModel convertedSpot = mapper.Map<VehicleRentalSpotModel>(rs);
 
             rentalSpotRepo.Update(convertedSpot);
 
@@ -67,8 +56,7 @@ namespace RowerPower.Controllers {
                 RedirectToAction("Index");
             }
 
-            VehicleRentalSpotViewModel convertedSpot = new VehicleRentalSpotViewModel();
-            convertedSpot = convertedSpot.ToRentalSpotViewModel(rs);
+            VehicleRentalSpotViewModel convertedSpot = mapper.Map<VehicleRentalSpotViewModel>(rs);
 
             return View(convertedSpot);
         }
@@ -87,19 +75,17 @@ namespace RowerPower.Controllers {
                 RedirectToAction("Index");
             }
 
-            VehicleRentalSpotViewModel convertedSpot = new VehicleRentalSpotViewModel();
-            convertedSpot = convertedSpot.ToRentalSpotViewModel(rs);
+            VehicleRentalSpotViewModel convertedSpot = mapper.Map<VehicleRentalSpotViewModel>(rs);
 
             return View(convertedSpot);
         }
 
         [HttpGet]
         public IActionResult Index() {
-            List<VehicleRentalSpotViewModel> rentalsList = new List<VehicleRentalSpotViewModel>();
+            List<VehicleRentalSpotViewModel> rentalsList = new();
 
             foreach (var rs in rentalSpotRepo.GetAll()) {
-                VehicleRentalSpotViewModel convertedSpot = new VehicleRentalSpotViewModel();
-                convertedSpot = rs.ToRentalSpotViewModel(rs);
+                VehicleRentalSpotViewModel convertedSpot = mapper.Map<VehicleRentalSpotViewModel>(rs);
 
                 rentalsList.Add(convertedSpot);
             }
