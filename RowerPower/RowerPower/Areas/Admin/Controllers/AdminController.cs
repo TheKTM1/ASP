@@ -65,7 +65,7 @@ namespace RowerPower.Areas.Admin.Controllers {
             await userManager.RemoveFromRolesAsync(user, userRoles);
 
             //dodanie ról wpisanych w userEditForm.userRoles
-            if (userEditForm.userRoles is null) throw new Exception("xd");
+            if (userEditForm.userRoles is null) throw new Exception("null");
             foreach (var role in rolesToAddOrder) {
                 if (userEditForm.userRoles.Contains(role)) {
                     await userManager.AddToRoleAsync(user, role);

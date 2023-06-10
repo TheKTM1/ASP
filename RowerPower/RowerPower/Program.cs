@@ -220,4 +220,10 @@ app.MapAreaControllerRoute(
     pattern: "Admin/{action=Index}/{id?}",
     defaults: new { controller = "Admin" });
 
+app.MapAreaControllerRoute(
+    name: "Users",
+    areaName: "Users",
+    pattern: "Users/{action=Index}/{id?}",
+    defaults: new { controller = "Users" });
+
 app.Run();

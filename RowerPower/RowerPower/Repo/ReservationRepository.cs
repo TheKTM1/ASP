@@ -9,8 +9,12 @@ namespace RowerPower.Repo {
             _db = db;
         }
 
-        public VehicleReservationModel? Get(int id) {
-            return _db.VehicleReservations.Include(x => x.VehicleId).Include(x => x.LocaleId).SingleOrDefault(x => x.ReservationId == id);
+        public VehicleReservationModel? Get(int id) { 
+            //dwie możliwości
+            //a - wywalasz include'y (i tak w modelu są same inty (jest jeden string userID), więc samemu trzeba tworzyć relacje w kodzie
+            //b - modyfikujesz model rezerwacji, by przyjmował obiekty, a nie inty/string
+            //smaczngo dla jego tenk
+            return _db.VehicleReservations.Include(x => x.Vehicle).Include(x => x.LocaleId).SingleOrDefault(x => x.ReservationId == id);
         }
 
         public void Delete(int id) {
@@ -36,7 +40,7 @@ namespace RowerPower.Repo {
         }
 
         public List<VehicleReservationModel> GetAll() {
-            return _db.VehicleReservations.Include(x => x.VehicleId).Include(x => x.LocaleId).OrderBy(x => x.ReservationId).ToList();
+            return _db.VehicleReservations.Include(x => x.Vehicle).Include(x => x.LocaleId).OrderBy(x => x.ReservationId).ToList();
         }
     }
 }
