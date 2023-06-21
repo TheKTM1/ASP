@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RowerPower.Models {
-    public class VehicleReservationViewModel { //jeszcze mapper XD
+    public class VehicleReservationViewModel {
         public int ReservationId { get; set; }
         [Display(Name = "Nr pojazdu")]
         [Required(ErrorMessage = "Pole nie może być puste.")]
